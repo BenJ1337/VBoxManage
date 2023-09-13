@@ -11,7 +11,4 @@ VBoxManage storageattach %VM_NAME% --storagectl "SATA Controller" ^
     --port 0 --device 0 --type hdd ^
     --medium %DISC_PATH%
 
-VBoxManage storagectl %VM_NAME% --name "IDE Controller" --add ide
-VBoxManage storageattach %VM_NAME% --storagectl "IDE Controller" ^
-    --port 0 --device 0 --type dvddrive ^
-    --medium %ISO_PATH%
+REM VBoxManage modifyvm %VM_NAME% --nic2 hostonly --host-only-adapter1=%HOST_ONLY%

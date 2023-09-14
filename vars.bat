@@ -1,5 +1,3 @@
-
-
 SET VM_NAME=vm-ubuntu-server-22-04-1
 
 SET DISC_PATH_OLD=./hdd/OracleLinux6Test.vdi

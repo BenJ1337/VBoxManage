@@ -9,4 +9,9 @@ REM VBoxManage.exe: error: Cannot register the hard disk 'C:\.\.\.\VBoxManage\hd
 REM VBoxManage.exe: error: Details: code E_INVALIDARG (0x80070057), component VirtualBoxWrap, interface IVirtualBox, callee IUnknown
 REM VBoxManage.exe: error: Context: "OpenMedium(Bstr(pszFilenameOrUuid).raw(), enmDevType, enmAccessMode, fForceNewUuidOnOpen, pMedium.asOutParam())" at line 201 of file VBoxManageDisk.cpp
 
-VBoxManage internalcommands sethduuid %DISC_PATH_OLD%
+if "%1" == "" (
+    ECHO "Name of the medium is missing."
+    exit /b 1  
+)
+
+VBoxManage internalcommands sethduuid "%DISC_PATH%/%1"

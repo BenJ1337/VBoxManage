@@ -13,6 +13,10 @@ if [%2] == [] (
     ECHO "Nr for interface is missing."
     exit /b 1  
 )
+if [%3] == [] (
+    ECHO "Nr for interface in vm is missing."
+    exit /b 1  
+)
 
 REM -- transfers batch file arguments to variables with meaningful names --
 SET vmIndex=%1
@@ -23,8 +27,10 @@ REM -- Beginning of main script
 CALL :getVmName %vmIndex% || exit /b 1
 CALL :getInterfaceName %interfaceIndex% || exit /b 1
 
-REM TODO Make index of adapter an option. currently its hardcoded
-VBoxManage modifyvm "%vmName%" --nic2 hostonly --host-only-adapter2="%interfaceName%"
+
+ECHO VM: %vm%
+ECHO Nic Nr: %3
+VBoxManage modifyvm "%vmName%" --nic%3 hostonly --host-only-adapter%3="%interfaceName%"
 
 exit /b 0 REM End of main script
 

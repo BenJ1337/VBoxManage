@@ -4,6 +4,7 @@ chcp 1252
 CALL paths.bat
 CALL vars.bat
 
+
 REM -- Check for mandatory arguments --
 if [%1] == [] (
     ECHO "filename of medium for deletion is missing."
@@ -15,7 +16,7 @@ SET mediumPath=%1
 SET mediumPath=%mediumPath:"=%
 
 if not %mediumPath:~1,1% == : (
-    SET mediumPath=%DISC_PATH%%mediumPath%
+    SET mediumPath=%array[general][MEDIUM_PATH]%%mediumPath%
 )
 
 

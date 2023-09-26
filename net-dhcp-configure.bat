@@ -18,7 +18,7 @@ CALL :getInterfaceName %interfaceIndex% || exit /b 1
 ECHO "Interface: %interfaceName%"
 
 VBoxManage dhcpserver remove --ifname "%interfaceName%"
-VBoxManage dhcpserver add --ifname "%interfaceName%" --ip 10.0.0.2 --netmask 255.255.255.0 --lowerip 10.0.0.110 --upperip 10.0.0.200
+VBoxManage dhcpserver add --ifname "%interfaceName%" --ip 192.168.56.1 --netmask 255.255.255.0 --lowerip 192.168.56.100 --upperip 192.168.56.200
 VBoxManage dhcpserver modify --ifname "%interfaceName%" --enable
 
 exit /b 0 REM End of main script

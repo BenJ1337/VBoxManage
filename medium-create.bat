@@ -23,7 +23,7 @@ REM -- Beginning of main script --
 
 REM  --size= megabytes: Specifies the image capacity in one megabyte units.
 
-VBoxManage createmedium --filename "%DISC_PATH%/%mediumName%" --size %mediumSize%
+VBoxManage createmedium --filename "%array[general][MEDIUM_PATH]%/%mediumName%" --size %mediumSize%
 
 
 exit /b 0 REM End of main script

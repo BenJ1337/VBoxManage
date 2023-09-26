@@ -17,4 +17,4 @@ REM -- transfers batch file arguments to variables with meaningful names --
 SET mediumNameSrc=%1
 SET mediumNameDst=%2
 
-VBoxManage modifymedium "%DISC_PATH%/%mediumNameSrc%.vdi" --move "%DISC_PATH%/%mediumNameDst%.vdi"
+VBoxManage modifymedium "%array[general][MEDIUM_PATH]%/%mediumNameSrc%.vdi" --move "%array[general][MEDIUM_PATH]%/%mediumNameDst%.vdi"

@@ -1,26 +1,28 @@
 @echo off
 
 CALL paths.bat
-CALL vars.bat
 
+REM -- Check for mandatory arguments --
 if [%1] == [] (
-    ECHO "Please select a vm by index"
+    ECHO "Nr for vm is missing."
+    exit /b 1  
+)
+if [%2] == [] (
+    ECHO "Name for the new vm (clone) is missing."
     exit /b 1  
 )
 
 REM -- transfers batch file arguments to variables with meaningful names --
 SET vmIndex=%1
+SET vmCloneName=%2
 
 REM -- Beginning of main script
-
 CALL :getVmName %vmIndex% || exit /b 1
+ECHO VM: %vmName%
 
-VBoxManage storageattach %vmName% --storagectl "IDE Controller" ^
-            --port 0 --device 0 --medium "none" 
-
-REM ubuntu-22.04.1-live-server-amd64.iso
-
-
+VBoxManage clonevm "%vmName%" --name="%vmCloneName%" --register 
+REM --mode=all REM --options=keepallmacs --options=keepdisknames --options=keephwuuids
+    
 
 exit /b 0 REM End of main script
 

@@ -20,7 +20,7 @@ VBoxManage modifyvm %1 --cpus 4 --memory 4096 --vram 12
 VBoxManage storagectl %1 --name "SATA Controller" --add sata --bootable on
 VBoxManage storageattach %1 --storagectl "SATA Controller" ^
     --port 0 --device 0 --type hdd ^
-    --medium "%DISC_PATH%/%2"
+    --medium "%array[general][MEDIUM_PATH]%/%2"
 
 :end
 exit /b 0

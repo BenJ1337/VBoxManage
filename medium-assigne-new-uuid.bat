@@ -14,4 +14,4 @@ if "%1" == "" (
     exit /b 1  
 )
 
-VBoxManage internalcommands sethduuid "%DISC_PATH%/%1"
+VBoxManage internalcommands sethduuid "%array[general][MEDIUM_PATH]%/%1"

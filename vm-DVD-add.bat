@@ -1,5 +1,6 @@
 @echo off
 
+
 CALL paths.bat
 CALL vars.bat
 

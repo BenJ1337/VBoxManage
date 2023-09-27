@@ -16,7 +16,7 @@ SET mediumPath=%1
 SET mediumPath=%mediumPath:"=%
 
 if not %mediumPath:~1,1% == : (
-    SET mediumPath=%array[general][MEDIUM_PATH]%%mediumPath%
+    SET mediumPath=%array[general][VM_PATH]%%mediumPath%
 )
 
 

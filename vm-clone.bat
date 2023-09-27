@@ -1,6 +1,7 @@
 @echo off
 
 CALL paths.bat
+CALL vars.bat
 
 REM -- Check for mandatory arguments --
 if [%1] == [] (
@@ -20,7 +21,8 @@ REM -- Beginning of main script
 CALL :getVmName %vmIndex% || exit /b 1
 ECHO VM: %vmName%
 
-VBoxManage clonevm "%vmName%" --name="%vmCloneName%" --register 
+VBoxManage clonevm "%vmName%" --name="%vmCloneName%" --register ^
+    --basefolder "%array[general][VM_PATH]%\"
 REM --mode=all REM --options=keepallmacs --options=keepdisknames --options=keephwuuids
     
 

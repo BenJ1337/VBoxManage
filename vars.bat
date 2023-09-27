@@ -1,7 +1,7 @@
 REM -- Beginning of main script --
 
 call :loadVarsFromIni env.ini
-ECHO %array[general][MEDIUM_PATH]%
+ECHO %array[general][VM_PATH]%
 
 exit /b 0 REM End of main script
 

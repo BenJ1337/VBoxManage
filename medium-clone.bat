@@ -13,4 +13,4 @@ if "%2" == "" (
     exit /b 1  
 )
 
-VBoxManage clonemedium "%array[general][MEDIUM_PATH]%/%1" "%array[general][MEDIUM_PATH]%/%2"
+VBoxManage clonemedium "%array[general][VM_PATH]%/%1" "%array[general][VM_PATH]%/%2"

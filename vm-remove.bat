@@ -1,6 +1,7 @@
 @echo off
 
 CALL paths.bat
+CALL vars.bat
 
 REM -- Check for mandatory arguments --
 if "%1" == "" (
@@ -20,6 +21,10 @@ VBoxManage storageattach %vmName%  --storagectl "SATA Controller" ^
 VBoxManage storageattach %vmName%  --storagectl "IDE Controller" ^
     --port 0 --device 0 --medium "none" 
 VBoxManage unregistervm %vmName%  --delete
+
+CALL medium-delete %vmName%\%vmName%.vdi
+
+@RD /S /Q "%array[general][VM_PATH]%/%vmName%"
 
 exit /b 0 REM End of main script
 

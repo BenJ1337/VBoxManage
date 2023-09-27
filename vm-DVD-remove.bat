@@ -18,7 +18,6 @@ CALL :getVmName %vmIndex% || exit /b 1
 VBoxManage storageattach %vmName% --storagectl "IDE Controller" ^
             --port 0 --device 0 --medium "none" 
 
-REM ubuntu-22.04.1-live-server-amd64.iso
 
 
 
